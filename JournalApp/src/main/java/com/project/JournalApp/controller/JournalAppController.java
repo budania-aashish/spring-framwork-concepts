@@ -20,6 +20,11 @@ public class JournalAppController {
         return new ArrayList<>(journalEntries.values());
     }
 
+    @GetMapping("/{journalId}")
+    public Journal getJournalById(@PathVariable String journalId) {
+        return journalEntries.get(journalId);
+    }
+
     @PostMapping
     public boolean createJournal(@RequestBody Journal journal) {
         journalEntries.put(journal.getJournalId(), journal);
