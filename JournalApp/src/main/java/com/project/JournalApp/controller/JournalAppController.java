@@ -31,9 +31,9 @@ public class JournalAppController {
         return true;
     }
 
-    @PutMapping
-    public boolean updateJournal(@RequestBody Journal journal) {
-        journalEntries.put(journal.getJournalId(), journal);
+    @PutMapping("/{journalId}")
+    public boolean updateJournal(@PathVariable String journalId, @RequestBody Journal journal) {
+        journalEntries.put(journalId, journal);
         return true;
     }
 
